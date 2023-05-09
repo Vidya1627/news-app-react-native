@@ -23,14 +23,26 @@ const NewsList = () => {
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => console.log(item)}>
-        <Text>{item.title}</Text>
+      <TouchableOpacity
+        style={{
+          marginBottom: 16,
+          backgroundColor: '#fff',
+          padding: 12,
+          borderRadius: 8,
+          elevation: 2,
+        }}
+        onPress={() => console.log(item)}
+      >
+        <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 8 }}>{item.title}</Text>
+        <Text style={{ fontSize: 14, marginBottom: 8 }}>{item.description}</Text>
+        <Text style={{ fontSize: 12, color: '#888' }}>Author: {item.author}</Text>
+        <Text style={{ fontSize: 12, color: '#888' }}>Published At: {item.publishedAt}</Text>
       </TouchableOpacity>
     );
   };
 
   return (
-    <View>
+    <View style={{ flex: 1, padding: 16 }}>
       <FlatList
         data={articles}
         renderItem={renderItem}
